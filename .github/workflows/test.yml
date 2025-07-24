@@ -1,7 +1,7 @@
 name: tesing output
 
 on:
-    pull_request: 
+    push: 
 
 jobs:
     tesing:
