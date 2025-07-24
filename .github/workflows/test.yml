@@ -2,8 +2,6 @@ name: tesing output
 
 on:
     push: 
-        branches: 
-            - main
 
 jobs:
     tesing:
