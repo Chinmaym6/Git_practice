@@ -1,44 +1,18 @@
-# name: Lint code
-# on:
-#     push:
-
-# jobs:
-#     lint:
-#         runs-on: ubuntu-latest
-
-#         steps:
-#             - name: checkout code
-#               uses: actions/checkout@v3
-            
-#             - name: Lint run
-#               uses: super-linter/super-linter@v6
-#               env:
-#                 VALIDATE_ALL_CODEBASE: true
-# GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-#                 VALIDATE_CHECKOV: false
-
-
-name: tesing output
-
+name: Lint code
 on:
-    push: 
+    push:
 
 jobs:
-    tesing:
+    lint:
         runs-on: ubuntu-latest
 
         steps:
             - name: checkout code
-              uses: actions/checkout@v6
-
-            - name: setup python
-              uses: actions/setup-python@v4
-              with:
-                python-version: '3.9'
-
-            - name: run testcode
-              uses: python test.py
-
+              uses: actions/checkout@v3
+            
+            - name: Lint run
+              uses: super-linter/super-linter@v6
               env:
                 VALIDATE_ALL_CODEBASE: true
                 GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                VALIDATE_CHECKOV: false
