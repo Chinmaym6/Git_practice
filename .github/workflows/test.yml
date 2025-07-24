@@ -1,0 +1,26 @@
+name: tesing output
+
+on:
+    push: 
+        branches: 
+            - main
+
+jobs:
+    tesing:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v6
+
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+
+            - name: run testcode
+              uses: python test.py
+
+              env:
+                VALIDATE_ALL_CODEBASE: true
+                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
